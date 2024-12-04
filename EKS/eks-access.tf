@@ -3,7 +3,7 @@ resource "aws_eks_access_policy_association" "admin" {
   policy_arn    = "arn:aws:eks::aws:cluster-access-policy/AmazonEKSClusterAdminPolicy" 
   
   # Remover arn no commit #principal_arn = aws_iam_user.example.arn
-  principal_arn = "arn:aws:iam::00000000:user/pmenos_integration_aws_azure_devops_prd"
+  principal_arn = "arn:aws:iam::00000000:user/<nome-user>"
 
   access_scope {
     type       = "cluster"
@@ -13,7 +13,7 @@ resource "aws_eks_access_policy_association" "admin" {
 
 resource "aws_eks_access_entry" "this" {
   cluster_name      = aws_eks_cluster.this.name
-  principal_arn     = "arn:aws:iam::00000000:user/pmenos_integration_aws_azure_devops_prd"
+  principal_arn     = "arn:aws:iam::00000000:user/<nome-user>"
   type              = "STANDARD"
 }
 
